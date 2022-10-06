@@ -7,7 +7,7 @@ from main import *
 sched = BlockingScheduler(timezone="Asia/Taipei")
 url_name = os.environ.get("CLOCK_NAME")
 
-@sched.scheduled_job('cron', second = '*/30')
+@sched.scheduled_job('cron', minute='*/1')
 def scheduled_job():
     print('========== APScheduler CRON RUN =========')
     print('This job runs every day */1 min.')
