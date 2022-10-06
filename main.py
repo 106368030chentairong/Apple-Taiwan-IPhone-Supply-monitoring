@@ -1,7 +1,8 @@
+import os
 from lib.iphone_check import *
 from lib.line_notify import *
 
-def foramt_mag(response):
+def foramt_mag(response,msg):
     msg = "\n"
     for stores in response:
         if len(stores[1]) != 0:
@@ -10,9 +11,12 @@ def foramt_mag(response):
                 msg += "{} \n".format(product[0])
     return msg
 
-if __name__=="__main__":
-    product_number_list = iphone_check_api().get_partNumber("iphone14")
+def get_order():
+    check_list = list(os.environ.get("check_list"))
+    msg = ""
+    for partNumber in check_list:
+        #product_number_list = iphone_check_api().get_partNumber("iphone14")
+        response = iphone_check_api().check_store_state(partNumber)
+        msg += foramt_mag(response,msg)
+    line_notify().send_msg(msg)
 
-    response = iphone_check_api().check_store_state("MPW43TA/A")
-
-    line_notify().send_msg(foramt_mag(response))

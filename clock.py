@@ -2,6 +2,7 @@ import os
 import urllib.request
 import datetime
 from apscheduler.schedulers.blocking import BlockingScheduler
+from main import *
 
 sched = BlockingScheduler(timezone="Asia/Taipei")
 url_name = os.environ.get("CLOCK_NAME")
@@ -14,6 +15,7 @@ def scheduled_job():
     url = "https://"+url_name+".herokuapp.com/"
     conn = urllib.request.urlopen(url)
     print(conn)
+    get_order()
     print('========== APScheduler CRON STOP =========')
 
 sched.start()
