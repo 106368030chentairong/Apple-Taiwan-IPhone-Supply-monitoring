@@ -12,7 +12,7 @@ def foramt_mag(response, msg, num):
                 msg += "{} \n".format(product[0])
                 num += 1
         else:
-            msg = ""
+            msg += ""
     return msg, num
 
 def get_order():
