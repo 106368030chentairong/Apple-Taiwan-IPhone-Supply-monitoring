@@ -13,9 +13,14 @@ def scheduled_job():
     print('This job runs every day */1 min.')
     print(f'{datetime.datetime.now().ctime()}')
     url = "https://"+url_name+".herokuapp.com/"
-    conn = urllib.request.urlopen(url)
-
-    get_order()
+    try:
+        onn = urllib.request.urlopen(url)
+    except Exception :
+        pass
+    try:
+        get_order()
+    except Exception:
+        pass
     print('========== APScheduler CRON STOP =========')
 
 sched.start()
