@@ -26,8 +26,8 @@ def get_order():
         print(response)
         msg,num = foramt_mag(response,msg, num)
         msg += msg
-        num += 0
-        
+        num += num
+
     if num > 0:
         line_notify().send_msg(msg)
 
