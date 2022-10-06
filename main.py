@@ -11,7 +11,7 @@ def foramt_mag(response,msg):
     return msg
 
 def get_order():
-    check_list = os.environ.get("check_list")
+    check_list = os.environ.get("check_list").split(",")
     msg = ""
     for partNumber in check_list:
         print(partNumber)
