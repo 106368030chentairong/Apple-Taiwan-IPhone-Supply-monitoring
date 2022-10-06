@@ -6,7 +6,7 @@ def foramt_mag(response, msg, num):
     num += num
     msg = "\n"
     for stores in response:
-        if len(stores[1]) <= 0: 
+        if len(stores[1]) > 0: 
             msg += "{} :\n".format(stores[0])
             for product in stores[1]:
                 msg += "{} \n".format(product[0])
