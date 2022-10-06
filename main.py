@@ -17,6 +17,7 @@ def get_order():
         print(partNumber)
         #product_number_list = iphone_check_api().get_partNumber("iphone14")
         response = iphone_check_api().check_store_state(partNumber)
+        print(response)
         msg += foramt_mag(response,msg)
     line_notify().send_msg(msg)
 
