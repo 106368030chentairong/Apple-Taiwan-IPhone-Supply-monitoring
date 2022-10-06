@@ -5,10 +5,9 @@ from lib.line_notify import *
 def foramt_mag(response,msg):
     msg = "\n"
     for stores in response:
-        if len(stores[1]) != 0:
-            msg += "{} :\n".format(stores[0])
-            for product in stores[1]:
-                msg += "{} \n".format(product[0])
+        msg += "{} :\n".format(stores[0])
+        for product in stores[1]:
+            msg += "{} \n".format(product[0])
     return msg
 
 def get_order():
