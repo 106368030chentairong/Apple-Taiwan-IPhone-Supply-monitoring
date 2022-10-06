@@ -13,7 +13,7 @@ def scheduled_job():
     print(f'{datetime.datetime.now().ctime()}')
     url = "https://"+url_name+".herokuapp.com/"
     conn = urllib.request.urlopen(url)
-
+    print(conn)
     print('========== APScheduler CRON STOP =========')
 
 sched.start()
