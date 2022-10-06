@@ -13,7 +13,7 @@ def foramt_mag(response, msg, num):
                 num += 1
         else:
             msg = ""
-    return msg
+    return msg, num
 
 def get_order():
     check_list = os.environ.get("check_list").split(",")
@@ -24,8 +24,10 @@ def get_order():
         #product_number_list = iphone_check_api().get_partNumber("iphone14")
         response = iphone_check_api().check_store_state(partNumber)
         print(response)
-        msg += foramt_mag(response,msg, num)
-    
+        msg,num = foramt_mag(response,msg, num)
+        msg += msg
+        num += 0
+        
     if num > 0:
         line_notify().send_msg(msg)
 
