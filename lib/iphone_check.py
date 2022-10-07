@@ -1,3 +1,4 @@
+from dataclasses import field
 import requests
 import time
 import json
@@ -51,7 +52,8 @@ class iphone_check_api:
                 if store["partsAvailability"] != {}:
                     items = store["partsAvailability"].items()
                     for Key, value in items:
-                        pickup_list.append([value["messageTypes"]["regular"]["storePickupProductTitle"], value["pickupSearchQuote"]])
+                        if value["messageTypes"]["regular"]["storePickupProductTitle"].find("金色") >= 0:
+                            pickup_list.append([value["messageTypes"]["regular"]["storePickupProductTitle"], value["pickupSearchQuote"]])
                 store_list.append([store["storeName"],pickup_list])
             return store_list
         except KeyError:
