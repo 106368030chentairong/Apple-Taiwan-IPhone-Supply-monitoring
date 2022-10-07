@@ -10,8 +10,3 @@ app = Flask(__name__)
 def callback():
     if request.method == "GET":
         return "Hello Heroku"
-
-
-@app.route("/<str:id>", methods=['GET'])
-def index_id(id):
-    return iphone_check_api().get_partNumber(id)
